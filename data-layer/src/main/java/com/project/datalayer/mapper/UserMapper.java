@@ -1,7 +1,7 @@
 package com.project.datalayer.mapper;
 
-import com.project.cruddata.entity.User;
-import com.project.cruddata.dto.UserDTO;
+import com.project.datalayer.entity.User;
+import com.project.datalayer.dto.UserDTO;
 import org.springframework.stereotype.Component;
 
 /**

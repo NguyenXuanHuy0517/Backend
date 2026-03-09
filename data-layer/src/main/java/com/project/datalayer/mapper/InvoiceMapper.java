@@ -1,8 +1,8 @@
 package com.project.datalayer.mapper;
 
-import com.project.cruddata.entity.Invoice;
-import com.project.cruddata.dto.InvoiceSummaryDTO;
-import com.project.cruddata.dto.InvoiceServiceDetailDTO;
+import com.project.datalayer.entity.Invoice;
+import com.project.datalayer.dto.InvoiceSummaryDTO;
+import com.project.datalayer.dto.InvoiceServiceDetailDTO;
 import org.springframework.stereotype.Component;
 import java.util.stream.Collectors;
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
 package com.project.datalayer.mapper;
 
-import com.project.cruddata.entity.Contract;
-import com.project.cruddata.dto.ContractRequestDTO;
+import com.project.datalayer.entity.Contract;
+import com.project.datalayer.dto.ContractRequestDTO;
 import org.springframework.stereotype.Component;
 import java.util.stream.Collectors;
 

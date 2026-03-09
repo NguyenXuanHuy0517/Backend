@@ -1,6 +1,6 @@
 package com.project.datalayer.repository;
 
-import com.project.cruddata.entity.User;
+import com.project.datalayer.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

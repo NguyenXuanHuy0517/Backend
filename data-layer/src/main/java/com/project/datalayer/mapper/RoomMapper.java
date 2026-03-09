@@ -1,7 +1,7 @@
 package com.project.datalayer.mapper;
 
-import com.project.cruddata.entity.Room;
-import com.project.cruddata.dto.RoomDetailDTO;
+import com.project.datalayer.entity.Room;
+import com.project.datalayer.dto.RoomDetailDTO;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 
