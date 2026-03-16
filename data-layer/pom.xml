@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.project</groupId>
-    <artifactId>logic-layer</artifactId>
+    <artifactId>data-layer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>logic-layer</name>
     <description>logic-layer — Business Logic Module</description>

@@ -114,7 +114,7 @@ public class ContractBusinessService {
      * Người thuê xem hợp đồng ACTIVE hiện tại của mình.
      */
     public ContractDetailDTO getMyActiveContract(Long tenantId) {
-        Contract c = contractRepository.findFirstByTenantIdAndStatus(tenantId, "ACTIVE")
+        Contract c = contractRepository.findFirstByTenant_IdAndStatus(tenantId, "ACTIVE")
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Không tìm thấy hợp đồng đang hiệu lực cho người thuê ID: " + tenantId));
         return toDetailDTO(c);
@@ -124,7 +124,7 @@ public class ContractBusinessService {
      * Lịch sử tất cả hợp đồng của một người thuê.
      */
     public List<ContractDetailDTO> getContractsByTenant(Long tenantId) {
-        return contractRepository.findByTenantIdOrderByCreatedAtDesc(tenantId)
+        return contractRepository.findByTenant_IdOrderByCreatedAtDesc(tenantId)
                 .stream().map(this::toDetailDTO).collect(Collectors.toList());
     }
 

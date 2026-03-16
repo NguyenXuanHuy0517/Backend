@@ -23,7 +23,7 @@ public interface IssueRepository extends JpaRepository<Issue, Long> {
      * Lấy tất cả khiếu nại của người thuê, mới nhất trước.
      * Spring Data tự sinh: SELECT * FROM issues WHERE tenant_id = ? ORDER BY created_at DESC
      */
-    List<Issue> findByTenantIdOrderByCreatedAtDesc(Long tenantId);
+    List<Issue> findByTenant_IdOrderByCreatedAtDesc(Long tenantId);
 
     /**
      * Lấy khiếu nại theo trạng thái (OPEN / PROCESSING / RESOLVED / CLOSED).

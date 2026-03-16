@@ -34,4 +34,6 @@ public interface RoomRepository extends JpaRepository<Room, Long> {
      * để tính thống kê nhanh mà không cần load toàn bộ danh sách.
      */
     long countByAreaIdAndStatus(Long areaId, String status);
+
+    List<Room> findByAreaId(Long areaId);
 }

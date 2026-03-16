@@ -25,13 +25,13 @@ public interface ContractRepository extends JpaRepository<Contract, Long> {
      * ContractBusinessService.getMyActiveContract() dùng method này.
      * Một người thuê chỉ nên có 1 ACTIVE tại một thời điểm.
      */
-    Optional<Contract> findFirstByTenantIdAndStatus(Long tenantId, String status);
+    Optional<Contract> findFirstByTenant_IdAndStatus(Long tenantId, String status);
 
     /**
      * Lịch sử tất cả hợp đồng của người thuê, mới nhất trước.
      * ContractBusinessService.getContractsByTenant() dùng method này.
      */
-    List<Contract> findByTenantIdOrderByCreatedAtDesc(Long tenantId);
+    List<Contract> findByTenant_IdOrderByCreatedAtDesc(Long tenantId);
 
     /**
      * Lấy tất cả hợp đồng theo trạng thái.

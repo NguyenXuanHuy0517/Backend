@@ -32,7 +32,7 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
      * Kiểm tra hóa đơn đã tồn tại cho tháng/năm của một hợp đồng chưa.
      * InvoiceScheduler dùng để tránh tạo hóa đơn trùng.
      */
-    Optional<Invoice> findByContractIdAndBillingMonthAndBillingYear(
+    Optional<Invoice> findByContract_IdAndBillingMonthAndBillingYear(
             Long contractId, Integer billingMonth, Integer billingYear);
 
     /**

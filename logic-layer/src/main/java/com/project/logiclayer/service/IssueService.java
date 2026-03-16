@@ -158,7 +158,7 @@ public class IssueService {
 
     /** Người thuê xem danh sách khiếu nại của mình */
     public List<IssueResponseDTO> getIssuesByTenant(Long tenantId) {
-        return issueRepository.findByTenantIdOrderByCreatedAtDesc(tenantId)
+        return issueRepository.findByTenant_IdOrderByCreatedAtDesc(tenantId)
                 .stream().map(this::toResponseDTO).collect(Collectors.toList());
     }
 
