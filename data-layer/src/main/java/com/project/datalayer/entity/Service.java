@@ -29,6 +29,10 @@ public class Service {
     @Column(name = "unit_name", length = 20)
     private String unitName;
 
+    @ColumnDefault("true")
+    @Column(name = "is_active")
+    private Boolean isActive;
+
     @Lob
     @Column(name = "description")
     private String description;
@@ -74,6 +78,14 @@ public class Service {
 
     public void setUnitName(String unitName) {
         this.unitName = unitName;
+    }
+
+    public Boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 
     public String getDescription() {

@@ -23,5 +23,5 @@ public interface ServiceRepository extends BaseRepository<Service, Long> {
      * Lấy danh sách dịch vụ theo một danh sách ID cụ thể.
      * Thường dùng để kiểm tra tính hợp lệ khi người thuê đăng ký dịch vụ.
      */
-    List<Service> findByServiceIdIn(List<Long> serviceIds);
+    List<Service> findByIdIn(List<Long> serviceIds);
 }

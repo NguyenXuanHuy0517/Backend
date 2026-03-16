@@ -44,6 +44,17 @@ public class RoomBusinessService {
     }
 
     /**
+     * Tìm phòng theo mã phòng.
+     */
+    public RoomDetailDTO getRoomByCode(String roomCode) {
+        Room room = roomRepository.findByRoomCode(roomCode);
+        if (room == null) {
+            throw new RuntimeException("Không tìm thấy phòng với mã: " + roomCode);
+        }
+        return roomMapper.toDetailDTO(room);
+    }
+
+    /**
      * Chỉnh sửa thông tin phòng (Mã phòng, giá thuê, diện tích, thiết bị) (2.2).
      * Cập nhật các trường khớp với cấu trúc RoomDetailDTO mới.
      */

@@ -2,7 +2,6 @@ package com.project.logiclayer.service;
 
 import com.project.datalayer.dto.ContractRequestDTO;
 import com.project.datalayer.entity.Contract;
-import com.project.datalayer.entity.ContractService;
 import com.project.datalayer.entity.Room;
 import com.project.datalayer.entity.User;
 import com.project.datalayer.entity.Deposit;
@@ -15,6 +14,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -22,7 +24,7 @@ import java.util.stream.Collectors;
  * Đã cập nhật khớp với ContractRequestDTO mới.
  */
 @Service
-public class ContractBusinessService {
+public class ContractService {
 
     @Autowired
     private ContractRepository contractRepository;
@@ -47,9 +49,9 @@ public class ContractBusinessService {
                 .orElseThrow(() -> new RuntimeException("Phòng không tồn tại"));
 
         // 2. Kiểm tra trạng thái phòng (Chỉ phòng AVAILABLE mới được thuê)
-        if (room.getStatus() == null || !"AVAILABLE".equalsIgnoreCase(room.getStatus().name())) {
+        if (room.getStatus() == null || !"AVAILABLE".equalsIgnoreCase(room.getStatus())) {
             throw new RuntimeException("Phòng này hiện đang ở trạng thái: " +
-                    (room.getStatus() != null ? room.getStatus().name() : "UNKNOWN") + " và không thể cho thuê");
+                    (room.getStatus() != null ? room.getStatus() : "UNKNOWN") + " và không thể cho thuê");
         }
 
         // 3. Kiểm tra Người thuê (Tenant)
@@ -75,22 +77,22 @@ public class ContractBusinessService {
         // 6. Xử lý danh sách dịch vụ đăng ký (Mục 2.5)
         if (dto.getServiceIds() != null && !dto.getServiceIds().isEmpty()) {
             // Chuyển đổi ID dịch vụ thành danh sách ContractService (quan hệ trung gian)
-            List<ContractService> contractServices = dto.getServiceIds().stream().map(serviceId -> {
+            Set<com.project.datalayer.entity.ContractService> contractServices = dto.getServiceIds().stream().map(serviceId -> {
                 com.project.datalayer.entity.Service serviceEntity = serviceRepository.findById(serviceId)
                         .orElseThrow(() -> new RuntimeException("Dịch vụ ID " + serviceId + " không tồn tại"));
 
-                ContractService cs = new ContractService();
+                com.project.datalayer.entity.ContractService cs = new com.project.datalayer.entity.ContractService();
                 cs.setContract(contract);
                 cs.setService(serviceEntity);
                 cs.setQuantity(1); // Mặc định số lượng là 1 khi bắt đầu hợp đồng
                 return cs;
-            }).collect(Collectors.toList());
+            }).collect(Collectors.toSet());
 
             contract.setContractServices(contractServices);
         }
 
         // 7. Cập nhật trạng thái phòng sang RENTED
-        room.setStatus(com.project.datalayer.entity.RoomStatus.RENTED); // Giả định dùng Enum RoomStatus
+        room.setStatus("RENTED");
         roomRepository.save(room);
 
         return contractRepository.save(contract);

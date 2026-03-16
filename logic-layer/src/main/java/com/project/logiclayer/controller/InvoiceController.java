@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * InvoiceController: Cung cấp các Endpoint về tài chính cho App Flutter.
  */
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/business/invoices")
 public class InvoiceController {

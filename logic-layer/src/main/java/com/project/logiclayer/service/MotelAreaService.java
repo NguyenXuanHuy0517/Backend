@@ -26,7 +26,7 @@ public class MotelAreaService {
 
     public List<MotelAreaDTO> getAllAreasWithStats() {
         return areaRepository.findAll().stream().map(area -> {
-            List<Room> rooms = roomRepository.findByRoomId(area.getId());
+            List<Room> rooms = roomRepository.findByAreaId(area.getId());
 
             long totalRooms = rooms.size();
             long availableRooms = rooms.stream()

@@ -12,6 +12,7 @@ import java.util.List;
  * RoomController: Cung cấp API quản lý phòng cho ứng dụng Flutter.
  * Kết nối trực tiếp với RoomBusinessService để xử lý logic nghiệp vụ.
  */
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/business/rooms")
 public class RoomController {
@@ -36,6 +37,15 @@ public class RoomController {
     @GetMapping("/{id}")
     public ResponseEntity<RoomDetailDTO> getRoomDetail(@PathVariable Long id) {
         RoomDetailDTO roomDetail = roomBusinessService.getRoomDetail(id);
+        return ResponseEntity.ok(roomDetail);
+    }
+
+    /**
+     * API: Tìm phòng theo mã phòng.
+     */
+    @GetMapping("/code/{roomCode}")
+    public ResponseEntity<RoomDetailDTO> getRoomByCode(@PathVariable String roomCode) {
+        RoomDetailDTO roomDetail = roomBusinessService.getRoomByCode(roomCode);
         return ResponseEntity.ok(roomDetail);
     }
 

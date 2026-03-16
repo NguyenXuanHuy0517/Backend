@@ -11,6 +11,7 @@ import java.util.Map;
 /**
  * AuthController: Cung cấp API xác thực có kèm JWT cho Flutter.
  */
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
