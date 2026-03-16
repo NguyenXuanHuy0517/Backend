@@ -5,6 +5,8 @@ import com.project.datalayer.dto.RoomDetailDTO;
 import com.project.datalayer.dto.RoomPriceUpdateDTO;
 import com.project.datalayer.dto.RoomStatusHistoryDTO;
 import com.project.logiclayer.service.RoomBusinessService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,19 +28,35 @@ import java.util.List;
 @RequestMapping("/api/business/rooms")
 public class RoomController {
 
+    private static final Logger logger = LoggerFactory.getLogger(RoomController.class);
+
     @Autowired
     private RoomBusinessService roomBusinessService;
 
     @GetMapping("/overview")
     public ResponseEntity<ApiResponse<List<RoomDetailDTO>>> getRoomsOverview() {
-        return ResponseEntity.ok(
-                ApiResponse.success(roomBusinessService.getRoomsOverview()));
+        logger.info("[ROOM] GET /api/business/rooms/overview - Fetching rooms overview");
+        try {
+            List<RoomDetailDTO> rooms = roomBusinessService.getRoomsOverview();
+            logger.info("[ROOM] GET /api/business/rooms/overview - Retrieved {} rooms", rooms.size());
+            return ResponseEntity.ok(ApiResponse.success(rooms));
+        } catch (Exception e) {
+            logger.error("[ROOM] GET /api/business/rooms/overview - Error: {}", e.getMessage(), e);
+            throw e;
+        }
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<RoomDetailDTO>> getRoomDetail(@PathVariable Long id) {
-        return ResponseEntity.ok(
-                ApiResponse.success(roomBusinessService.getRoomDetail(id)));
+        logger.info("[ROOM] GET /api/business/rooms/{} - Fetching room detail", id);
+        try {
+            RoomDetailDTO room = roomBusinessService.getRoomDetail(id);
+            logger.info("[ROOM] GET /api/business/rooms/{} - Room detail retrieved", id);
+            return ResponseEntity.ok(ApiResponse.success(room));
+        } catch (Exception e) {
+            logger.error("[ROOM] GET /api/business/rooms/{} - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 
     @PutMapping("/{id}")
@@ -46,9 +64,16 @@ public class RoomController {
     public ResponseEntity<ApiResponse<RoomDetailDTO>> updateRoom(
             @PathVariable Long id,
             @RequestBody RoomDetailDTO roomDetailDTO) {
-        return ResponseEntity.ok(
-                ApiResponse.success("Cập nhật phòng thành công",
-                        roomBusinessService.updateRoomInfo(id, roomDetailDTO)));
+        logger.info("[ROOM] PUT /api/business/rooms/{} - Updating room", id);
+        try {
+            RoomDetailDTO updated = roomBusinessService.updateRoomInfo(id, roomDetailDTO);
+            logger.info("[ROOM] PUT /api/business/rooms/{} - Room updated successfully", id);
+            return ResponseEntity.ok(
+                    ApiResponse.success("Cập nhật phòng thành công", updated));
+        } catch (Exception e) {
+            logger.error("[ROOM] PUT /api/business/rooms/{} - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -66,9 +91,16 @@ public class RoomController {
             @RequestParam String status,
             @RequestParam(required = false) Long changedBy,
             @RequestParam(required = false) String note) {
-        roomBusinessService.changeRoomStatus(id, status, changedBy, note);
-        return ResponseEntity.ok(
-                ApiResponse.success("Cập nhật trạng thái phòng thành công", null));
+        logger.info("[ROOM] PATCH /api/business/rooms/{}/status - Changing status to: {}, changedBy: {}, note: {}", id, status, changedBy, note);
+        try {
+            roomBusinessService.changeRoomStatus(id, status, changedBy, note);
+            logger.info("[ROOM] PATCH /api/business/rooms/{}/status - Status updated successfully", id);
+            return ResponseEntity.ok(
+                    ApiResponse.success("Cập nhật trạng thái phòng thành công", null));
+        } catch (Exception e) {
+            logger.error("[ROOM] PATCH /api/business/rooms/{}/status - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -79,8 +111,15 @@ public class RoomController {
     // @PreAuthorize("hasRole('HOST')")
     public ResponseEntity<ApiResponse<List<RoomStatusHistoryDTO>>> getRoomHistory(
             @PathVariable Long id) {
-        return ResponseEntity.ok(
-                ApiResponse.success(roomBusinessService.getRoomStatusHistory(id)));
+        logger.info("[ROOM] GET /api/business/rooms/{}/history - Fetching room status history", id);
+        try {
+            List<RoomStatusHistoryDTO> history = roomBusinessService.getRoomStatusHistory(id);
+            logger.info("[ROOM] GET /api/business/rooms/{}/history - Retrieved {} history records", id, history.size());
+            return ResponseEntity.ok(ApiResponse.success(history));
+        } catch (Exception e) {
+            logger.error("[ROOM] GET /api/business/rooms/{}/history - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -94,8 +133,16 @@ public class RoomController {
     public ResponseEntity<ApiResponse<RoomDetailDTO>> updateRoomPrices(
             @PathVariable Long id,
             @RequestBody RoomPriceUpdateDTO dto) {
-        return ResponseEntity.ok(
-                ApiResponse.success("Cập nhật giá điện nước thành công",
-                        roomBusinessService.updateRoomPrices(id, dto)));
+        logger.info("[ROOM] PUT /api/business/rooms/{}/prices - Updating prices. elecPrice: {}, waterPrice: {}, reason: {}",
+                id, dto.getElecPrice(), dto.getWaterPrice(), dto.getReason());
+        try {
+            RoomDetailDTO updated = roomBusinessService.updateRoomPrices(id, dto);
+            logger.info("[ROOM] PUT /api/business/rooms/{}/prices - Prices updated successfully", id);
+            return ResponseEntity.ok(
+                    ApiResponse.success("Cập nhật giá điện nước thành công", updated));
+        } catch (Exception e) {
+            logger.error("[ROOM] PUT /api/business/rooms/{}/prices - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 }

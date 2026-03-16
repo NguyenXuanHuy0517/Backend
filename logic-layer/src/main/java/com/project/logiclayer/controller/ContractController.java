@@ -5,6 +5,8 @@ import com.project.datalayer.dto.ContractDetailDTO;
 import com.project.datalayer.dto.ContractRequestDTO;
 import com.project.datalayer.entity.Contract;
 import com.project.logiclayer.service.ContractBusinessService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +31,8 @@ import java.util.List;
 @RequestMapping("/api/business/contracts")
 public class ContractController {
 
+    private static final Logger logger = LoggerFactory.getLogger(ContractController.class);
+
     @Autowired
     private ContractBusinessService contractBusinessService;
 
@@ -38,10 +42,18 @@ public class ContractController {
     // @PreAuthorize("hasRole('HOST')")
     public ResponseEntity<ApiResponse<String>> createContract(
             @RequestBody ContractRequestDTO dto) {
-        Contract contract = contractBusinessService.createNewContract(dto);
-        return ResponseEntity.ok(
-                ApiResponse.success("Tạo hợp đồng thành công",
-                        "Mã hợp đồng: " + contract.getContractCode()));
+        logger.info("[CONTRACT] POST /api/business/contracts - Creating new contract for tenantId: {}, roomId: {}",
+                dto.getTenantId(), dto.getRoomId());
+        try {
+            Contract contract = contractBusinessService.createNewContract(dto);
+            logger.info("[CONTRACT] POST /api/business/contracts - Contract created successfully with code: {}", contract.getContractCode());
+            return ResponseEntity.ok(
+                    ApiResponse.success("Tạo hợp đồng thành công",
+                            "Mã hợp đồng: " + contract.getContractCode()));
+        } catch (Exception e) {
+            logger.error("[CONTRACT] POST /api/business/contracts - Error creating contract: {}", e.getMessage(), e);
+            throw e;
+        }
     }
 
     // ─── Xem chi tiết hợp đồng ───────────────────────────────────────────────
@@ -54,8 +66,15 @@ public class ContractController {
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<ContractDetailDTO>> getContractDetail(
             @PathVariable Long id) {
-        return ResponseEntity.ok(
-                ApiResponse.success(contractBusinessService.getContractDetail(id)));
+        logger.info("[CONTRACT] GET /api/business/contracts/{} - Fetching contract detail", id);
+        try {
+            ContractDetailDTO detail = contractBusinessService.getContractDetail(id);
+            logger.info("[CONTRACT] GET /api/business/contracts/{} - Contract detail retrieved", id);
+            return ResponseEntity.ok(ApiResponse.success(detail));
+        } catch (Exception e) {
+            logger.error("[CONTRACT] GET /api/business/contracts/{} - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -65,8 +84,15 @@ public class ContractController {
     @GetMapping("/my/{tenantId}")
     public ResponseEntity<ApiResponse<ContractDetailDTO>> getMyContract(
             @PathVariable Long tenantId) {
-        return ResponseEntity.ok(
-                ApiResponse.success(contractBusinessService.getMyActiveContract(tenantId)));
+        logger.info("[CONTRACT] GET /api/business/contracts/my/{} - Fetching active contract for tenant", tenantId);
+        try {
+            ContractDetailDTO contract = contractBusinessService.getMyActiveContract(tenantId);
+            logger.info("[CONTRACT] GET /api/business/contracts/my/{} - Active contract retrieved", tenantId);
+            return ResponseEntity.ok(ApiResponse.success(contract));
+        } catch (Exception e) {
+            logger.error("[CONTRACT] GET /api/business/contracts/my/{} - Error: {}", tenantId, e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -75,8 +101,15 @@ public class ContractController {
     @GetMapping("/history/{tenantId}")
     public ResponseEntity<ApiResponse<List<ContractDetailDTO>>> getContractHistory(
             @PathVariable Long tenantId) {
-        return ResponseEntity.ok(
-                ApiResponse.success(contractBusinessService.getContractsByTenant(tenantId)));
+        logger.info("[CONTRACT] GET /api/business/contracts/history/{} - Fetching contract history for tenant", tenantId);
+        try {
+            List<ContractDetailDTO> contracts = contractBusinessService.getContractsByTenant(tenantId);
+            logger.info("[CONTRACT] GET /api/business/contracts/history/{} - Retrieved {} contracts", tenantId, contracts.size());
+            return ResponseEntity.ok(ApiResponse.success(contracts));
+        } catch (Exception e) {
+            logger.error("[CONTRACT] GET /api/business/contracts/history/{} - Error: {}", tenantId, e.getMessage(), e);
+            throw e;
+        }
     }
 
     // ─── Gia hạn & chấm dứt ──────────────────────────────────────────────────
@@ -86,15 +119,29 @@ public class ContractController {
     public ResponseEntity<ApiResponse<Void>> extendContract(
             @PathVariable Long id,
             @RequestParam String newEndDate) {
-        contractBusinessService.extendContract(id, LocalDate.parse(newEndDate));
-        return ResponseEntity.ok(ApiResponse.success("Gia hạn hợp đồng thành công", null));
+        logger.info("[CONTRACT] PATCH /api/business/contracts/{}/extend - Extending contract to date: {}", id, newEndDate);
+        try {
+            contractBusinessService.extendContract(id, LocalDate.parse(newEndDate));
+            logger.info("[CONTRACT] PATCH /api/business/contracts/{}/extend - Contract extended successfully", id);
+            return ResponseEntity.ok(ApiResponse.success("Gia hạn hợp đồng thành công", null));
+        } catch (Exception e) {
+            logger.error("[CONTRACT] PATCH /api/business/contracts/{}/extend - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 
     @PatchMapping("/{id}/terminate")
     // @PreAuthorize("hasRole('HOST')")
     public ResponseEntity<ApiResponse<Void>> terminateContract(@PathVariable Long id) {
-        contractBusinessService.terminateContract(id);
-        return ResponseEntity.ok(ApiResponse.success("Đã chấm dứt hợp đồng", null));
+        logger.info("[CONTRACT] PATCH /api/business/contracts/{}/terminate - Terminating contract", id);
+        try {
+            contractBusinessService.terminateContract(id);
+            logger.info("[CONTRACT] PATCH /api/business/contracts/{}/terminate - Contract terminated successfully", id);
+            return ResponseEntity.ok(ApiResponse.success("Đã chấm dứt hợp đồng", null));
+        } catch (Exception e) {
+            logger.error("[CONTRACT] PATCH /api/business/contracts/{}/terminate - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 
     // ─── Đăng ký / hủy dịch vụ (Mục 2.5) ────────────────────────────────────
@@ -109,9 +156,16 @@ public class ContractController {
     public ResponseEntity<ApiResponse<ContractDetailDTO>> addService(
             @PathVariable Long id,
             @PathVariable Long serviceId) {
-        ContractDetailDTO result = contractBusinessService.addService(id, serviceId);
-        return ResponseEntity.ok(
-                ApiResponse.success("Đăng ký dịch vụ thành công", result));
+        logger.info("[CONTRACT] POST /api/business/contracts/{}/services/{} - Adding service to contract", id, serviceId);
+        try {
+            ContractDetailDTO result = contractBusinessService.addService(id, serviceId);
+            logger.info("[CONTRACT] POST /api/business/contracts/{}/services/{} - Service added successfully", id, serviceId);
+            return ResponseEntity.ok(
+                    ApiResponse.success("Đăng ký dịch vụ thành công", result));
+        } catch (Exception e) {
+            logger.error("[CONTRACT] POST /api/business/contracts/{}/services/{} - Error: {}", id, serviceId, e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -124,8 +178,15 @@ public class ContractController {
     public ResponseEntity<ApiResponse<ContractDetailDTO>> removeService(
             @PathVariable Long id,
             @PathVariable Long serviceId) {
-        ContractDetailDTO result = contractBusinessService.removeService(id, serviceId);
-        return ResponseEntity.ok(
-                ApiResponse.success("Hủy dịch vụ thành công", result));
+        logger.info("[CONTRACT] DELETE /api/business/contracts/{}/services/{} - Removing service from contract", id, serviceId);
+        try {
+            ContractDetailDTO result = contractBusinessService.removeService(id, serviceId);
+            logger.info("[CONTRACT] DELETE /api/business/contracts/{}/services/{} - Service removed successfully", id, serviceId);
+            return ResponseEntity.ok(
+                    ApiResponse.success("Hủy dịch vụ thành công", result));
+        } catch (Exception e) {
+            logger.error("[CONTRACT] DELETE /api/business/contracts/{}/services/{} - Error: {}", id, serviceId, e.getMessage(), e);
+            throw e;
+        }
     }
 }

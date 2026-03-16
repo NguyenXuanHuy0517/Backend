@@ -3,6 +3,8 @@ package com.project.logiclayer.controller;
 import com.project.datalayer.dto.ApiResponse;
 import com.project.datalayer.dto.ServiceDTO;
 import com.project.logiclayer.service.ServiceBusinessService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +25,8 @@ import java.util.List;
 @RequestMapping("/api/business/services")
 public class ServiceController {
 
+    private static final Logger logger = LoggerFactory.getLogger(ServiceController.class);
+
     @Autowired
     private ServiceBusinessService serviceBusinessService;
 
@@ -31,8 +35,15 @@ public class ServiceController {
      */
     @GetMapping
     public ResponseEntity<ApiResponse<List<ServiceDTO>>> getAllServices() {
-        List<ServiceDTO> services = serviceBusinessService.getAllActiveServices();
-        return ResponseEntity.ok(ApiResponse.success(services));
+        logger.info("[SERVICE] GET /api/business/services - Fetching all active services");
+        try {
+            List<ServiceDTO> services = serviceBusinessService.getAllActiveServices();
+            logger.info("[SERVICE] GET /api/business/services - Retrieved {} services", services.size());
+            return ResponseEntity.ok(ApiResponse.success(services));
+        } catch (Exception e) {
+            logger.error("[SERVICE] GET /api/business/services - Error: {}", e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -41,8 +52,15 @@ public class ServiceController {
     @GetMapping("/area/{areaId}")
     public ResponseEntity<ApiResponse<List<ServiceDTO>>> getServicesByArea(
             @PathVariable Long areaId) {
-        List<ServiceDTO> services = serviceBusinessService.getServicesByArea(areaId);
-        return ResponseEntity.ok(ApiResponse.success(services));
+        logger.info("[SERVICE] GET /api/business/services/area/{} - Fetching services for area", areaId);
+        try {
+            List<ServiceDTO> services = serviceBusinessService.getServicesByArea(areaId);
+            logger.info("[SERVICE] GET /api/business/services/area/{} - Retrieved {} services", areaId, services.size());
+            return ResponseEntity.ok(ApiResponse.success(services));
+        } catch (Exception e) {
+            logger.error("[SERVICE] GET /api/business/services/area/{} - Error: {}", areaId, e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -52,8 +70,15 @@ public class ServiceController {
     @PostMapping
     // @PreAuthorize("hasRole('HOST')")
     public ResponseEntity<ApiResponse<ServiceDTO>> createService(@RequestBody ServiceDTO dto) {
-        ServiceDTO created = serviceBusinessService.createService(dto);
-        return ResponseEntity.ok(ApiResponse.success("Thêm dịch vụ thành công", created));
+        logger.info("[SERVICE] POST /api/business/services - Creating service: {}, price: {}", dto.getServiceName(), dto.getPrice());
+        try {
+            ServiceDTO created = serviceBusinessService.createService(dto);
+            logger.info("[SERVICE] POST /api/business/services - Service created successfully with ID: {}", created.getServiceId());
+            return ResponseEntity.ok(ApiResponse.success("Thêm dịch vụ thành công", created));
+        } catch (Exception e) {
+            logger.error("[SERVICE] POST /api/business/services - Error creating service: {}", e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -64,8 +89,15 @@ public class ServiceController {
     public ResponseEntity<ApiResponse<ServiceDTO>> updateService(
             @PathVariable Long id,
             @RequestBody ServiceDTO dto) {
-        ServiceDTO updated = serviceBusinessService.updateService(id, dto);
-        return ResponseEntity.ok(ApiResponse.success("Cập nhật dịch vụ thành công", updated));
+        logger.info("[SERVICE] PUT /api/business/services/{} - Updating service: {}", id, dto.getServiceName());
+        try {
+            ServiceDTO updated = serviceBusinessService.updateService(id, dto);
+            logger.info("[SERVICE] PUT /api/business/services/{} - Service updated successfully", id);
+            return ResponseEntity.ok(ApiResponse.success("Cập nhật dịch vụ thành công", updated));
+        } catch (Exception e) {
+            logger.error("[SERVICE] PUT /api/business/services/{} - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -74,7 +106,14 @@ public class ServiceController {
     @DeleteMapping("/{id}")
     // @PreAuthorize("hasRole('HOST')")
     public ResponseEntity<ApiResponse<Void>> deleteService(@PathVariable Long id) {
-        serviceBusinessService.deleteService(id);
-        return ResponseEntity.ok(ApiResponse.success("Xóa dịch vụ thành công", null));
+        logger.info("[SERVICE] DELETE /api/business/services/{} - Deleting service", id);
+        try {
+            serviceBusinessService.deleteService(id);
+            logger.info("[SERVICE] DELETE /api/business/services/{} - Service deleted successfully", id);
+            return ResponseEntity.ok(ApiResponse.success("Xóa dịch vụ thành công", null));
+        } catch (Exception e) {
+            logger.error("[SERVICE] DELETE /api/business/services/{} - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 }

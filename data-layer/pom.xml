@@ -48,12 +48,6 @@
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
 
-        <!-- Data Layer (entities, DTOs, repositories) -->
-        <dependency>
-            <groupId>com.project</groupId>
-            <artifactId>data-layer</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
 
         <!-- MariaDB Driver -->
         <dependency>

@@ -2,6 +2,8 @@ package com.project.logiclayer.controller;
 
 import com.project.datalayer.dto.ApiResponse;
 import com.project.logiclayer.service.ChatbotService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,8 @@ import java.util.Map;
 @RequestMapping("/api/business/chatbot")
 public class ChatbotController {
 
+    private static final Logger logger = LoggerFactory.getLogger(ChatbotController.class);
+
     @Autowired
     private ChatbotService chatbotService;
 
@@ -31,8 +35,15 @@ public class ChatbotController {
     public ResponseEntity<ApiResponse<String>> ask(@RequestBody Map<String, Object> body) {
         String question = (String) body.get("question");
         Long userId = Long.valueOf(body.get("userId").toString());
-
-        String answer = chatbotService.processQuestion(question, userId);
-        return ResponseEntity.ok(ApiResponse.success(answer));
+        logger.info("[CHATBOT] POST /api/business/chatbot/ask - userId: {}, question: {}", userId, question);
+        
+        try {
+            String answer = chatbotService.processQuestion(question, userId);
+            logger.info("[CHATBOT] POST /api/business/chatbot/ask - Answer generated for userId: {}", userId);
+            return ResponseEntity.ok(ApiResponse.success(answer));
+        } catch (Exception e) {
+            logger.error("[CHATBOT] POST /api/business/chatbot/ask - Error processing question for userId {}: {}", userId, e.getMessage(), e);
+            throw e;
+        }
     }
 }

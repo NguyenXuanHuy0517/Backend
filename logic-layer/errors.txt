@@ -1,0 +1,405 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/AreaController.java:[3,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/AreaController.java:[37,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/AreaController.java:[53,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/AreaController.java:[71,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/AreaController.java:[88,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ChatbotController.java:[3,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ChatbotController.java:[35,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[3,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[4,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[3,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[5,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[7,36] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[43,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[67,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[67,39] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[85,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[85,39] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[102,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[102,44] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[119,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[135,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[156,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[156,39] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[178,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[178,39] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[42,24] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[43,24] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[107,12] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[116,12] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[126,17] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[143,12] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[182,12] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[233,13] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[3,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[5,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/BillingService.java:[4,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[38,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[58,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[84,26] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[82,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[106,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[126,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/BillingService.java:[80,65] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[3,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[5,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[4,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[8,36] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[42,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[42,39] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[62,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[62,44] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[80,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[80,44] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[98,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[98,39] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[120,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[120,39] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[142,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[142,39] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[42,24] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[47,12] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[69,12] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[99,12] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[131,12] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[160,17] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[166,17] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[179,13] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[3,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[4,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ReportService.java:[3,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[45,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[45,39] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[65,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[93,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[117,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[117,53] package ReportDTO does not exist
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[134,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ReportService.java:[44,12] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ReportService.java:[158,26] package ReportDTO does not exist
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[3,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[5,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[6,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[4,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[5,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[7,36] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[11,40] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[37,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[50,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[64,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[89,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[112,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[112,44] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[135,26] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[133,27] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[38,24] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[136,17] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[174,56] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[206,41] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ServiceController.java:[3,33] cannot find symbol
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ServiceController.java:[4,33] cannot find symbol
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.14.1:compile (default-compile) on project logic-layer: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/AreaController.java:[3,33] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/AreaController.java:[37,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.AreaController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/AreaController.java:[53,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.AreaController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/AreaController.java:[71,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.AreaController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/AreaController.java:[88,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.AreaController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ChatbotController.java:[3,33] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ChatbotController.java:[35,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.ChatbotController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[3,33] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[4,33] cannot find symbol
+[ERROR]   symbol:   class ContractDetailDTO
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[3,33] cannot find symbol
+[ERROR]   symbol:   class ContractDetailDTO
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[5,33] cannot find symbol
+[ERROR]   symbol:   class ServiceDTO
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[7,36] cannot find symbol
+[ERROR]   symbol:   class ServiceMapper
+[ERROR]   location: package com.project.datalayer.mapper
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[43,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.ContractController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[67,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.ContractController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[67,39] cannot find symbol
+[ERROR]   symbol:   class ContractDetailDTO
+[ERROR]   location: class com.project.logiclayer.controller.ContractController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[85,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.ContractController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[85,39] cannot find symbol
+[ERROR]   symbol:   class ContractDetailDTO
+[ERROR]   location: class com.project.logiclayer.controller.ContractController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[102,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.ContractController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[102,44] cannot find symbol
+[ERROR]   symbol:   class ContractDetailDTO
+[ERROR]   location: class com.project.logiclayer.controller.ContractController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[119,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.ContractController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[135,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.ContractController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[156,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.ContractController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[156,39] cannot find symbol
+[ERROR]   symbol:   class ContractDetailDTO
+[ERROR]   location: class com.project.logiclayer.controller.ContractController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[178,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.ContractController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ContractController.java:[178,39] cannot find symbol
+[ERROR]   symbol:   class ContractDetailDTO
+[ERROR]   location: class com.project.logiclayer.controller.ContractController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[42,24] cannot find symbol
+[ERROR]   symbol:   class DepositRepository
+[ERROR]   location: class com.project.logiclayer.service.ContractBusinessService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[43,24] cannot find symbol
+[ERROR]   symbol:   class ServiceMapper
+[ERROR]   location: class com.project.logiclayer.service.ContractBusinessService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[107,12] cannot find symbol
+[ERROR]   symbol:   class ContractDetailDTO
+[ERROR]   location: class com.project.logiclayer.service.ContractBusinessService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[116,12] cannot find symbol
+[ERROR]   symbol:   class ContractDetailDTO
+[ERROR]   location: class com.project.logiclayer.service.ContractBusinessService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[126,17] cannot find symbol
+[ERROR]   symbol:   class ContractDetailDTO
+[ERROR]   location: class com.project.logiclayer.service.ContractBusinessService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[143,12] cannot find symbol
+[ERROR]   symbol:   class ContractDetailDTO
+[ERROR]   location: class com.project.logiclayer.service.ContractBusinessService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[182,12] cannot find symbol
+[ERROR]   symbol:   class ContractDetailDTO
+[ERROR]   location: class com.project.logiclayer.service.ContractBusinessService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ContractBusinessService.java:[233,13] cannot find symbol
+[ERROR]   symbol:   class ContractDetailDTO
+[ERROR]   location: class com.project.logiclayer.service.ContractBusinessService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[3,33] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[5,33] cannot find symbol
+[ERROR]   symbol:   class MeterReadingDTO
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/BillingService.java:[4,33] cannot find symbol
+[ERROR]   symbol:   class MeterReadingDTO
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[38,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.InvoiceController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[58,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.InvoiceController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[84,26] cannot find symbol
+[ERROR]   symbol:   class MeterReadingDTO
+[ERROR]   location: class com.project.logiclayer.controller.InvoiceController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[82,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.InvoiceController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[106,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.InvoiceController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/InvoiceController.java:[126,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.InvoiceController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/BillingService.java:[80,65] cannot find symbol
+[ERROR]   symbol:   class MeterReadingDTO
+[ERROR]   location: class com.project.logiclayer.service.BillingService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[3,33] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[5,33] cannot find symbol
+[ERROR]   symbol:   class IssueResponseDTO
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[4,33] cannot find symbol
+[ERROR]   symbol:   class IssueResponseDTO
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[8,36] cannot find symbol
+[ERROR]   symbol:   class IssueMapper
+[ERROR]   location: package com.project.datalayer.mapper
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[42,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.IssueController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[42,39] cannot find symbol
+[ERROR]   symbol:   class IssueResponseDTO
+[ERROR]   location: class com.project.logiclayer.controller.IssueController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[62,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.IssueController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[62,44] cannot find symbol
+[ERROR]   symbol:   class IssueResponseDTO
+[ERROR]   location: class com.project.logiclayer.controller.IssueController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[80,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.IssueController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[80,44] cannot find symbol
+[ERROR]   symbol:   class IssueResponseDTO
+[ERROR]   location: class com.project.logiclayer.controller.IssueController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[98,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.IssueController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[98,39] cannot find symbol
+[ERROR]   symbol:   class IssueResponseDTO
+[ERROR]   location: class com.project.logiclayer.controller.IssueController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[120,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.IssueController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[120,39] cannot find symbol
+[ERROR]   symbol:   class IssueResponseDTO
+[ERROR]   location: class com.project.logiclayer.controller.IssueController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[142,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.IssueController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/IssueController.java:[142,39] cannot find symbol
+[ERROR]   symbol:   class IssueResponseDTO
+[ERROR]   location: class com.project.logiclayer.controller.IssueController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[42,24] cannot find symbol
+[ERROR]   symbol:   class IssueMapper
+[ERROR]   location: class com.project.logiclayer.service.IssueService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[47,12] cannot find symbol
+[ERROR]   symbol:   class IssueResponseDTO
+[ERROR]   location: class com.project.logiclayer.service.IssueService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[69,12] cannot find symbol
+[ERROR]   symbol:   class IssueResponseDTO
+[ERROR]   location: class com.project.logiclayer.service.IssueService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[99,12] cannot find symbol
+[ERROR]   symbol:   class IssueResponseDTO
+[ERROR]   location: class com.project.logiclayer.service.IssueService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[131,12] cannot find symbol
+[ERROR]   symbol:   class IssueResponseDTO
+[ERROR]   location: class com.project.logiclayer.service.IssueService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[160,17] cannot find symbol
+[ERROR]   symbol:   class IssueResponseDTO
+[ERROR]   location: class com.project.logiclayer.service.IssueService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[166,17] cannot find symbol
+[ERROR]   symbol:   class IssueResponseDTO
+[ERROR]   location: class com.project.logiclayer.service.IssueService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/IssueService.java:[179,13] cannot find symbol
+[ERROR]   symbol:   class IssueResponseDTO
+[ERROR]   location: class com.project.logiclayer.service.IssueService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[3,33] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[4,33] cannot find symbol
+[ERROR]   symbol:   class ReportDTO
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ReportService.java:[3,33] cannot find symbol
+[ERROR]   symbol:   class ReportDTO
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[45,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.ReportController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[45,39] cannot find symbol
+[ERROR]   symbol:   class ReportDTO
+[ERROR]   location: class com.project.logiclayer.controller.ReportController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[65,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.ReportController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[93,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.ReportController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[117,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.ReportController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[117,53] package ReportDTO does not exist
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ReportController.java:[134,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.ReportController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ReportService.java:[44,12] cannot find symbol
+[ERROR]   symbol:   class ReportDTO
+[ERROR]   location: class com.project.logiclayer.service.ReportService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/ReportService.java:[158,26] package ReportDTO does not exist
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[3,33] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[5,33] cannot find symbol
+[ERROR]   symbol:   class RoomPriceUpdateDTO
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[6,33] cannot find symbol
+[ERROR]   symbol:   class RoomStatusHistoryDTO
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[4,33] cannot find symbol
+[ERROR]   symbol:   class RoomPriceUpdateDTO
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[5,33] cannot find symbol
+[ERROR]   symbol:   class RoomStatusHistoryDTO
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[7,36] cannot find symbol
+[ERROR]   symbol:   class RoomStatusHistory
+[ERROR]   location: package com.project.datalayer.entity
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[11,40] cannot find symbol
+[ERROR]   symbol:   class RoomStatusHistoryRepository
+[ERROR]   location: package com.project.datalayer.repository
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[37,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.RoomController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[50,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.RoomController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[64,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.RoomController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[89,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.RoomController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[112,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.RoomController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[112,44] cannot find symbol
+[ERROR]   symbol:   class RoomStatusHistoryDTO
+[ERROR]   location: class com.project.logiclayer.controller.RoomController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[135,26] cannot find symbol
+[ERROR]   symbol:   class RoomPriceUpdateDTO
+[ERROR]   location: class com.project.logiclayer.controller.RoomController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/RoomController.java:[133,27] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: class com.project.logiclayer.controller.RoomController
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[38,24] cannot find symbol
+[ERROR]   symbol:   class RoomStatusHistoryRepository
+[ERROR]   location: class com.project.logiclayer.service.RoomBusinessService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[136,17] cannot find symbol
+[ERROR]   symbol:   class RoomStatusHistoryDTO
+[ERROR]   location: class com.project.logiclayer.service.RoomBusinessService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[174,56] cannot find symbol
+[ERROR]   symbol:   class RoomPriceUpdateDTO
+[ERROR]   location: class com.project.logiclayer.service.RoomBusinessService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/service/RoomBusinessService.java:[206,41] cannot find symbol
+[ERROR]   symbol:   class RoomPriceUpdateDTO
+[ERROR]   location: class com.project.logiclayer.service.RoomBusinessService
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ServiceController.java:[3,33] cannot find symbol
+[ERROR]   symbol:   class ApiResponse
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] /C:/Users/AD/Downloads/ProjectFull/Backend/logic-layer/src/main/java/com/project/logiclayer/controller/ServiceController.java:[4,33] cannot find symbol
+[ERROR]   symbol:   class ServiceDTO
+[ERROR]   location: package com.project.datalayer.dto
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

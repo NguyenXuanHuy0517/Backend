@@ -4,6 +4,8 @@ import com.project.datalayer.dto.ApiResponse;
 import com.project.datalayer.dto.IssueReportDTO;
 import com.project.datalayer.dto.IssueResponseDTO;
 import com.project.logiclayer.service.IssueService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +28,8 @@ import java.util.Map;
 @RequestMapping("/api/business/issues")
 public class IssueController {
 
+    private static final Logger logger = LoggerFactory.getLogger(IssueController.class);
+
     @Autowired
     private IssueService issueService;
 
@@ -38,9 +42,17 @@ public class IssueController {
     public ResponseEntity<ApiResponse<IssueResponseDTO>> createIssue(
             @RequestBody IssueReportDTO dto,
             @RequestParam Long tenantId) {
-        IssueResponseDTO created = issueService.createIssue(dto, tenantId);
-        return ResponseEntity.ok(
-                ApiResponse.success("Gửi khiếu nại thành công", created));
+        logger.info("[ISSUE] POST /api/business/issues - Creating issue for tenantId: {}, roomId: {}, title: {}, priority: {}",
+                tenantId, dto.getRoomId(), dto.getTitle(), dto.getPriority());
+        try {
+            IssueResponseDTO created = issueService.createIssue(dto, tenantId);
+            logger.info("[ISSUE] POST /api/business/issues - Issue created successfully with ID: {}", created.getId());
+            return ResponseEntity.ok(
+                    ApiResponse.success("Gửi khiếu nại thành công", created));
+        } catch (Exception e) {
+            logger.error("[ISSUE] POST /api/business/issues - Error creating issue: {}", e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -49,8 +61,15 @@ public class IssueController {
     @GetMapping("/my/{tenantId}")
     public ResponseEntity<ApiResponse<List<IssueResponseDTO>>> getMyIssues(
             @PathVariable Long tenantId) {
-        return ResponseEntity.ok(
-                ApiResponse.success(issueService.getIssuesByTenant(tenantId)));
+        logger.info("[ISSUE] GET /api/business/issues/my/{} - Fetching issues for tenant", tenantId);
+        try {
+            List<IssueResponseDTO> issues = issueService.getIssuesByTenant(tenantId);
+            logger.info("[ISSUE] GET /api/business/issues/my/{} - Retrieved {} issues", tenantId, issues.size());
+            return ResponseEntity.ok(ApiResponse.success(issues));
+        } catch (Exception e) {
+            logger.error("[ISSUE] GET /api/business/issues/my/{} - Error: {}", tenantId, e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -59,8 +78,15 @@ public class IssueController {
     @GetMapping
     // @PreAuthorize("hasRole('HOST')")
     public ResponseEntity<ApiResponse<List<IssueResponseDTO>>> getAllIssues() {
-        return ResponseEntity.ok(
-                ApiResponse.success(issueService.getAllIssues()));
+        logger.info("[ISSUE] GET /api/business/issues - Fetching all issues");
+        try {
+            List<IssueResponseDTO> issues = issueService.getAllIssues();
+            logger.info("[ISSUE] GET /api/business/issues - Retrieved {} issues", issues.size());
+            return ResponseEntity.ok(ApiResponse.success(issues));
+        } catch (Exception e) {
+            logger.error("[ISSUE] GET /api/business/issues - Error: {}", e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -72,9 +98,16 @@ public class IssueController {
     public ResponseEntity<ApiResponse<IssueResponseDTO>> updateStatus(
             @PathVariable Long id,
             @RequestParam String status) {
-        IssueResponseDTO updated = issueService.updateIssueStatus(id, status);
-        return ResponseEntity.ok(
-                ApiResponse.success("Cập nhật trạng thái thành công", updated));
+        logger.info("[ISSUE] PATCH /api/business/issues/{}/status - Updating status to: {}", id, status);
+        try {
+            IssueResponseDTO updated = issueService.updateIssueStatus(id, status);
+            logger.info("[ISSUE] PATCH /api/business/issues/{}/status - Status updated successfully", id);
+            return ResponseEntity.ok(
+                    ApiResponse.success("Cập nhật trạng thái thành công", updated));
+        } catch (Exception e) {
+            logger.error("[ISSUE] PATCH /api/business/issues/{}/status - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -87,9 +120,16 @@ public class IssueController {
     public ResponseEntity<ApiResponse<IssueResponseDTO>> confirmResolution(
             @PathVariable Long id,
             @RequestParam Long tenantId) {
-        IssueResponseDTO result = issueService.confirmResolution(id, tenantId);
-        return ResponseEntity.ok(
-                ApiResponse.success("Đã xác nhận hoàn thành xử lý khiếu nại", result));
+        logger.info("[ISSUE] PATCH /api/business/issues/{}/confirm - Confirming resolution for tenantId: {}", id, tenantId);
+        try {
+            IssueResponseDTO result = issueService.confirmResolution(id, tenantId);
+            logger.info("[ISSUE] PATCH /api/business/issues/{}/confirm - Resolution confirmed successfully", id);
+            return ResponseEntity.ok(
+                    ApiResponse.success("Đã xác nhận hoàn thành xử lý khiếu nại", result));
+        } catch (Exception e) {
+            logger.error("[ISSUE] PATCH /api/business/issues/{}/confirm - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -105,8 +145,15 @@ public class IssueController {
             @RequestBody Map<String, Object> body) {
         Integer rating = (Integer) body.get("rating");
         String feedback = (String) body.getOrDefault("feedback", null);
-        IssueResponseDTO result = issueService.rateIssue(id, tenantId, rating, feedback);
-        return ResponseEntity.ok(
-                ApiResponse.success("Cảm ơn bạn đã đánh giá!", result));
+        logger.info("[ISSUE] PATCH /api/business/issues/{}/rate - Rating issue for tenantId: {}, rating: {}", id, tenantId, rating);
+        try {
+            IssueResponseDTO result = issueService.rateIssue(id, tenantId, rating, feedback);
+            logger.info("[ISSUE] PATCH /api/business/issues/{}/rate - Issue rated successfully", id);
+            return ResponseEntity.ok(
+                    ApiResponse.success("Cảm ơn bạn đã đánh giá!", result));
+        } catch (Exception e) {
+            logger.error("[ISSUE] PATCH /api/business/issues/{}/rate - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 }

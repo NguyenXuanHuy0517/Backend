@@ -4,6 +4,8 @@ import com.project.datalayer.dto.ApiResponse;
 import com.project.datalayer.dto.InvoiceSummaryDTO;
 import com.project.datalayer.dto.MeterReadingDTO;
 import com.project.logiclayer.service.BillingService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +26,8 @@ import java.util.List;
 @RequestMapping("/api/business/invoices")
 public class InvoiceController {
 
+    private static final Logger logger = LoggerFactory.getLogger(InvoiceController.class);
+
     @Autowired
     private BillingService billingService;
 
@@ -33,8 +37,15 @@ public class InvoiceController {
     @GetMapping("/my-bills/{tenantId}")
     public ResponseEntity<ApiResponse<List<InvoiceSummaryDTO>>> getMyInvoices(
             @PathVariable Long tenantId) {
-        return ResponseEntity.ok(
-                ApiResponse.success(billingService.getInvoicesByTenant(tenantId)));
+        logger.info("[INVOICE] GET /api/business/invoices/my-bills/{} - Fetching invoices for tenant", tenantId);
+        try {
+            List<InvoiceSummaryDTO> invoices = billingService.getInvoicesByTenant(tenantId);
+            logger.info("[INVOICE] GET /api/business/invoices/my-bills/{} - Retrieved {} invoices", tenantId, invoices.size());
+            return ResponseEntity.ok(ApiResponse.success(invoices));
+        } catch (Exception e) {
+            logger.error("[INVOICE] GET /api/business/invoices/my-bills/{} - Error: {}", tenantId, e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -46,8 +57,15 @@ public class InvoiceController {
     // @PreAuthorize("hasRole('HOST')")
     public ResponseEntity<ApiResponse<InvoiceSummaryDTO>> calculateBill(
             @PathVariable Long id) {
-        return ResponseEntity.ok(
-                ApiResponse.success(billingService.calculateMonthlyBill(id)));
+        logger.info("[INVOICE] POST /api/business/invoices/calculate/{} - Calculating bill", id);
+        try {
+            InvoiceSummaryDTO result = billingService.calculateMonthlyBill(id);
+            logger.info("[INVOICE] POST /api/business/invoices/calculate/{} - Bill calculated successfully", id);
+            return ResponseEntity.ok(ApiResponse.success(result));
+        } catch (Exception e) {
+            logger.error("[INVOICE] POST /api/business/invoices/calculate/{} - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -64,9 +82,17 @@ public class InvoiceController {
     public ResponseEntity<ApiResponse<InvoiceSummaryDTO>> updateMeterReading(
             @PathVariable Long id,
             @RequestBody MeterReadingDTO dto) {
-        InvoiceSummaryDTO result = billingService.updateMeterReading(id, dto);
-        return ResponseEntity.ok(
-                ApiResponse.success("Đã cập nhật chỉ số và tính lại hóa đơn", result));
+        logger.info("[INVOICE] PUT /api/business/invoices/{}/meters - Updating meter reading. elecNew: {}, waterNew: {}",
+                id, dto.getElecNew(), dto.getWaterNew());
+        try {
+            InvoiceSummaryDTO result = billingService.updateMeterReading(id, dto);
+            logger.info("[INVOICE] PUT /api/business/invoices/{}/meters - Meter updated and bill recalculated", id);
+            return ResponseEntity.ok(
+                    ApiResponse.success("Đã cập nhật chỉ số và tính lại hóa đơn", result));
+        } catch (Exception e) {
+            logger.error("[INVOICE] PUT /api/business/invoices/{}/meters - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -79,9 +105,16 @@ public class InvoiceController {
     // @PreAuthorize("hasRole('HOST')")
     public ResponseEntity<ApiResponse<InvoiceSummaryDTO>> confirmPayment(
             @PathVariable Long id) {
-        InvoiceSummaryDTO result = billingService.confirmPayment(id);
-        return ResponseEntity.ok(
-                ApiResponse.success("Xác nhận thanh toán thành công", result));
+        logger.info("[INVOICE] PATCH /api/business/invoices/{}/pay - Confirming payment", id);
+        try {
+            InvoiceSummaryDTO result = billingService.confirmPayment(id);
+            logger.info("[INVOICE] PATCH /api/business/invoices/{}/pay - Payment confirmed successfully", id);
+            return ResponseEntity.ok(
+                    ApiResponse.success("Xác nhận thanh toán thành công", result));
+        } catch (Exception e) {
+            logger.error("[INVOICE] PATCH /api/business/invoices/{}/pay - Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -91,7 +124,14 @@ public class InvoiceController {
     @GetMapping("/debts")
     // @PreAuthorize("hasRole('HOST')")
     public ResponseEntity<ApiResponse<List<InvoiceSummaryDTO>>> getDebtList() {
-        return ResponseEntity.ok(
-                ApiResponse.success(billingService.getDebtList()));
+        logger.info("[INVOICE] GET /api/business/invoices/debts - Fetching debt list");
+        try {
+            List<InvoiceSummaryDTO> debts = billingService.getDebtList();
+            logger.info("[INVOICE] GET /api/business/invoices/debts - Retrieved {} debt items", debts.size());
+            return ResponseEntity.ok(ApiResponse.success(debts));
+        } catch (Exception e) {
+            logger.error("[INVOICE] GET /api/business/invoices/debts - Error: {}", e.getMessage(), e);
+            throw e;
+        }
     }
 }

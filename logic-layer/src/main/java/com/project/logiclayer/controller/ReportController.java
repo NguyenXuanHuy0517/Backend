@@ -3,6 +3,8 @@ package com.project.logiclayer.controller;
 import com.project.datalayer.dto.ApiResponse;
 import com.project.datalayer.dto.ReportDTO;
 import com.project.logiclayer.service.ReportService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +30,8 @@ import java.util.Map;
 // @PreAuthorize("hasRole('HOST')")   // Bỏ comment khi bật Spring Security
 public class ReportController {
 
+    private static final Logger logger = LoggerFactory.getLogger(ReportController.class);
+
     @Autowired
     private ReportService reportService;
 
@@ -40,8 +44,15 @@ public class ReportController {
     @GetMapping("/dashboard")
     public ResponseEntity<ApiResponse<ReportDTO>> getDashboard(
             @RequestParam(required = false) Integer year) {
-        return ResponseEntity.ok(
-                ApiResponse.success(reportService.getDashboard(year)));
+        logger.info("[REPORT] GET /api/business/reports/dashboard - Fetching dashboard for year: {}", year != null ? year : "current");
+        try {
+            ReportDTO dashboard = reportService.getDashboard(year);
+            logger.info("[REPORT] GET /api/business/reports/dashboard - Dashboard retrieved successfully");
+            return ResponseEntity.ok(ApiResponse.success(dashboard));
+        } catch (Exception e) {
+            logger.error("[REPORT] GET /api/business/reports/dashboard - Error: {}", e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -54,18 +65,24 @@ public class ReportController {
     public ResponseEntity<ApiResponse<Map<String, Object>>> getRevenue(
             @RequestParam(required = false) Integer year) {
         if (year == null) year = LocalDate.now().getYear();
-
-        Map<String, Object> data = Map.of(
-                "year", year,
-                "totalRevenue", reportService.getTotalRevenueByYear(year),
-                "totalDebt", reportService.getTotalDebtAmount(),
-                "revenueByMonth", reportService.getRevenueByMonth(year),
-                "paidCount", reportService.getDashboard(year).getTotalPaidInvoices(),
-                "unpaidCount", reportService.getDashboard(year).getTotalUnpaidInvoices(),
-                "overdueCount", reportService.getDashboard(year).getTotalOverdueInvoices()
-        );
-
-        return ResponseEntity.ok(ApiResponse.success(data));
+        logger.info("[REPORT] GET /api/business/reports/revenue - Fetching revenue for year: {}", year);
+        
+        try {
+            Map<String, Object> data = Map.of(
+                    "year", year,
+                    "totalRevenue", reportService.getTotalRevenueByYear(year),
+                    "totalDebt", reportService.getTotalDebtAmount(),
+                    "revenueByMonth", reportService.getRevenueByMonth(year),
+                    "paidCount", reportService.getDashboard(year).getTotalPaidInvoices(),
+                    "unpaidCount", reportService.getDashboard(year).getTotalUnpaidInvoices(),
+                    "overdueCount", reportService.getDashboard(year).getTotalOverdueInvoices()
+            );
+            logger.info("[REPORT] GET /api/business/reports/revenue - Revenue data retrieved for year: {}", year);
+            return ResponseEntity.ok(ApiResponse.success(data));
+        } catch (Exception e) {
+            logger.error("[REPORT] GET /api/business/reports/revenue - Error: {}", e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -74,16 +91,22 @@ public class ReportController {
      */
     @GetMapping("/occupancy")
     public ResponseEntity<ApiResponse<Map<String, Object>>> getOccupancy() {
-        Map<String, Object> data = Map.of(
-                "totalRooms", reportService.getTotalRooms(),
-                "rentedRooms", reportService.getRoomCountByStatus("RENTED"),
-                "availableRooms", reportService.getRoomCountByStatus("AVAILABLE"),
-                "maintenanceRooms", reportService.getRoomCountByStatus("MAINTENANCE"),
-                "occupancyRate", reportService.getOccupancyRate(),
-                "occupancyByArea", reportService.getOccupancyByArea()
-        );
-
-        return ResponseEntity.ok(ApiResponse.success(data));
+        logger.info("[REPORT] GET /api/business/reports/occupancy - Fetching occupancy statistics");
+        try {
+            Map<String, Object> data = Map.of(
+                    "totalRooms", reportService.getTotalRooms(),
+                    "rentedRooms", reportService.getRoomCountByStatus("RENTED"),
+                    "availableRooms", reportService.getRoomCountByStatus("AVAILABLE"),
+                    "maintenanceRooms", reportService.getRoomCountByStatus("MAINTENANCE"),
+                    "occupancyRate", reportService.getOccupancyRate(),
+                    "occupancyByArea", reportService.getOccupancyByArea()
+            );
+            logger.info("[REPORT] GET /api/business/reports/occupancy - Occupancy data retrieved");
+            return ResponseEntity.ok(ApiResponse.success(data));
+        } catch (Exception e) {
+            logger.error("[REPORT] GET /api/business/reports/occupancy - Error: {}", e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -92,8 +115,15 @@ public class ReportController {
      */
     @GetMapping("/services")
     public ResponseEntity<ApiResponse<List<ReportDTO.ServiceUsageDTO>>> getServiceStats() {
-        return ResponseEntity.ok(
-                ApiResponse.success(reportService.getTopServices()));
+        logger.info("[REPORT] GET /api/business/reports/services - Fetching service statistics");
+        try {
+            List<ReportDTO.ServiceUsageDTO> services = reportService.getTopServices();
+            logger.info("[REPORT] GET /api/business/reports/services - Retrieved {} top services", services.size());
+            return ResponseEntity.ok(ApiResponse.success(services));
+        } catch (Exception e) {
+            logger.error("[REPORT] GET /api/business/reports/services - Error: {}", e.getMessage(), e);
+            throw e;
+        }
     }
 
     /**
@@ -102,14 +132,20 @@ public class ReportController {
      */
     @GetMapping("/issues")
     public ResponseEntity<ApiResponse<Map<String, Object>>> getIssueStats() {
-        ReportDTO report = reportService.getDashboard(null);
-        Map<String, Object> data = Map.of(
-                "totalIssues", report.getTotalIssues(),
-                "openIssues", report.getOpenIssues(),
-                "resolvedIssues", report.getResolvedIssues(),
-                "issuesByPriority", report.getIssuesByPriority()
-        );
-
-        return ResponseEntity.ok(ApiResponse.success(data));
+        logger.info("[REPORT] GET /api/business/reports/issues - Fetching issue statistics");
+        try {
+            ReportDTO report = reportService.getDashboard(null);
+            Map<String, Object> data = Map.of(
+                    "totalIssues", report.getTotalIssues(),
+                    "openIssues", report.getOpenIssues(),
+                    "resolvedIssues", report.getResolvedIssues(),
+                    "issuesByPriority", report.getIssuesByPriority()
+            );
+            logger.info("[REPORT] GET /api/business/reports/issues - Issue statistics retrieved");
+            return ResponseEntity.ok(ApiResponse.success(data));
+        } catch (Exception e) {
+            logger.error("[REPORT] GET /api/business/reports/issues - Error: {}", e.getMessage(), e);
+            throw e;
+        }
     }
 }
