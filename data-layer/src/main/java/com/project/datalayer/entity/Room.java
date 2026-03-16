@@ -49,6 +49,14 @@ public class Room {
     @Column(name = "amenities")
     private String amenities;
 
+    /**
+     * Lịch sử thay đổi trạng thái phòng — THÊM MỚI.
+     * Được populate tự động khi RoomBusinessService gọi changeRoomStatus().
+     */
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OrderBy("changedAt DESC")
+    private Set<RoomStatusHistory> statusHistory = new LinkedHashSet<>();
+
     @OneToMany(mappedBy = "room")
     private Set<Contract> contracts = new LinkedHashSet<>();
 

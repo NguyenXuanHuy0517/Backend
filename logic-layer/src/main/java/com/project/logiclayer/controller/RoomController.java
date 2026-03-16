@@ -1,7 +1,10 @@
 package com.project.logiclayer.controller;
 
-import com.project.logiclayer.service.RoomBusinessService;
+import com.project.datalayer.dto.ApiResponse;
 import com.project.datalayer.dto.RoomDetailDTO;
+import com.project.datalayer.dto.RoomPriceUpdateDTO;
+import com.project.datalayer.dto.RoomStatusHistoryDTO;
+import com.project.logiclayer.service.RoomBusinessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,10 +12,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * RoomController: Cung cấp API quản lý phòng cho ứng dụng Flutter.
- * Kết nối trực tiếp với RoomBusinessService để xử lý logic nghiệp vụ.
+ * RoomController (cập nhật hoàn chỉnh — Mục 2.2 + 2.3).
+ *
+ * Endpoint đầy đủ:
+ *   GET    /api/business/rooms/overview          → Danh sách tổng quan phòng
+ *   GET    /api/business/rooms/{id}              → Chi tiết phòng
+ *   PUT    /api/business/rooms/{id}              → Cập nhật thông tin phòng
+ *   PATCH  /api/business/rooms/{id}/status       → Đổi trạng thái phòng
+ *   GET    /api/business/rooms/{id}/history      → Lịch sử trạng thái phòng  [MỚI]
+ *   PUT    /api/business/rooms/{id}/prices       → Thiết lập giá điện nước   [MỚI]
  */
-@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/business/rooms")
 public class RoomController {
@@ -20,57 +29,73 @@ public class RoomController {
     @Autowired
     private RoomBusinessService roomBusinessService;
 
-    /**
-     * API: Lấy danh sách tổng quan tất cả các phòng (Mục 2.2).
-     * Trả về danh sách DTO chứa thông tin cơ bản để hiển thị dạng Grid/List trên App.
-     */
     @GetMapping("/overview")
-    public ResponseEntity<List<RoomDetailDTO>> getRoomsOverview() {
-        List<RoomDetailDTO> rooms = roomBusinessService.getRoomsOverview();
-        return ResponseEntity.ok(rooms);
+    public ResponseEntity<ApiResponse<List<RoomDetailDTO>>> getRoomsOverview() {
+        return ResponseEntity.ok(
+                ApiResponse.success(roomBusinessService.getRoomsOverview()));
     }
 
-    /**
-     * API: Xem thông tin chi tiết một phòng cụ thể.
-     * Bao gồm: Trang thiết bị, diện tích, giá điện nước và thông tin khu trọ.
-     */
     @GetMapping("/{id}")
-    public ResponseEntity<RoomDetailDTO> getRoomDetail(@PathVariable Long id) {
-        RoomDetailDTO roomDetail = roomBusinessService.getRoomDetail(id);
-        return ResponseEntity.ok(roomDetail);
+    public ResponseEntity<ApiResponse<RoomDetailDTO>> getRoomDetail(@PathVariable Long id) {
+        return ResponseEntity.ok(
+                ApiResponse.success(roomBusinessService.getRoomDetail(id)));
     }
 
-    /**
-     * API: Tìm phòng theo mã phòng.
-     */
-    @GetMapping("/code/{roomCode}")
-    public ResponseEntity<RoomDetailDTO> getRoomByCode(@PathVariable String roomCode) {
-        RoomDetailDTO roomDetail = roomBusinessService.getRoomByCode(roomCode);
-        return ResponseEntity.ok(roomDetail);
-    }
-
-    /**
-     * API: Chỉnh sửa thông tin phòng (Mục 2.2).
-     * Nhận JSON từ App Flutter và cập nhật vào Database.
-     * App sẽ gửi danh sách images và amenities dạng List<String>.
-     */
     @PutMapping("/{id}")
-    public ResponseEntity<RoomDetailDTO> updateRoom(
+    // @PreAuthorize("hasRole('HOST')")
+    public ResponseEntity<ApiResponse<RoomDetailDTO>> updateRoom(
             @PathVariable Long id,
             @RequestBody RoomDetailDTO roomDetailDTO) {
-        RoomDetailDTO updatedRoom = roomBusinessService.updateRoomInfo(id, roomDetailDTO);
-        return ResponseEntity.ok(updatedRoom);
+        return ResponseEntity.ok(
+                ApiResponse.success("Cập nhật phòng thành công",
+                        roomBusinessService.updateRoomInfo(id, roomDetailDTO)));
     }
 
     /**
-     * API: Cập nhật nhanh trạng thái phòng (Ví dụ: Chuyển sang 'Đang sửa chữa').
-     * Sử dụng PatchMapping để chỉ thay đổi một phần dữ liệu.
+     * Đổi trạng thái phòng với ghi chú lý do.
+     *
+     * @param id         ID phòng
+     * @param status     Trạng thái mới: AVAILABLE | DEPOSITED | RENTED | MAINTENANCE
+     * @param changedBy  ID người thực hiện (tùy chọn, lấy từ JWT trong production)
+     * @param note       Ghi chú lý do (tùy chọn)
      */
     @PatchMapping("/{id}/status")
-    public ResponseEntity<String> updateStatus(
+    // @PreAuthorize("hasRole('HOST')")
+    public ResponseEntity<ApiResponse<Void>> updateStatus(
             @PathVariable Long id,
-            @RequestParam String status) {
-        roomBusinessService.changeRoomStatus(id, status);
-        return ResponseEntity.ok("Cập nhật trạng thái phòng thành công.");
+            @RequestParam String status,
+            @RequestParam(required = false) Long changedBy,
+            @RequestParam(required = false) String note) {
+        roomBusinessService.changeRoomStatus(id, status, changedBy, note);
+        return ResponseEntity.ok(
+                ApiResponse.success("Cập nhật trạng thái phòng thành công", null));
+    }
+
+    /**
+     * Xem lịch sử thay đổi trạng thái của một phòng (Mục 2.2).
+     * Hiển thị mốc thời gian, trạng thái cũ → mới, người thực hiện.
+     */
+    @GetMapping("/{id}/history")
+    // @PreAuthorize("hasRole('HOST')")
+    public ResponseEntity<ApiResponse<List<RoomStatusHistoryDTO>>> getRoomHistory(
+            @PathVariable Long id) {
+        return ResponseEntity.ok(
+                ApiResponse.success(roomBusinessService.getRoomStatusHistory(id)));
+    }
+
+    /**
+     * Thiết lập giá điện nước riêng cho phòng (Mục 2.3).
+     *
+     * Body: { "elecPrice": 3800, "waterPrice": 16000, "reason": "Tăng giá EVN" }
+     * Chỉ truyền field cần thay đổi (null = giữ nguyên).
+     */
+    @PutMapping("/{id}/prices")
+    // @PreAuthorize("hasRole('HOST')")
+    public ResponseEntity<ApiResponse<RoomDetailDTO>> updateRoomPrices(
+            @PathVariable Long id,
+            @RequestBody RoomPriceUpdateDTO dto) {
+        return ResponseEntity.ok(
+                ApiResponse.success("Cập nhật giá điện nước thành công",
+                        roomBusinessService.updateRoomPrices(id, dto)));
     }
 }

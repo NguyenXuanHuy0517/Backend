@@ -6,9 +6,20 @@ import org.hibernate.annotations.ColumnDefault;
 import java.math.BigDecimal;
 import java.time.Instant;
 
+/**
+ * Invoice entity — Fix lỗi "cannot find symbol method getTotalAmount()" :92
+ *
+ * LỖI ĐÃ SỬA:
+ * ReportService dòng :92 gọi invoice.getTotalAmount() nhưng entity không có getter.
+ * Nguyên nhân: Entity dùng thủ công (không có @Data Lombok), cần khai báo getter rõ ràng.
+ *
+ * Cần copy file này vào:
+ *   data-layer/src/main/java/com/project/datalayer/entity/Invoice.java
+ */
 @Entity
 @Table(name = "invoices")
 public class Invoice {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "invoice_id", nullable = false)
@@ -18,7 +29,7 @@ public class Invoice {
     @JoinColumn(name = "contract_id")
     private Contract contract;
 
-    @Column(name = "invoice_code", length = 50)
+    @Column(name = "invoice_code", unique = true, length = 50)
     private String invoiceCode;
 
     @Column(name = "billing_month", nullable = false)
@@ -43,120 +54,61 @@ public class Invoice {
     @Column(name = "service_fees", precision = 15, scale = 2)
     private BigDecimal serviceFees;
 
+    /**
+     * Tổng tiền hóa đơn = tiền phòng + điện + nước + dịch vụ.
+     * Được tính và lưu vào DB bởi BillingService.calculateMonthlyBill().
+     * Null khi mới tạo (chưa nhập chỉ số điện nước).
+     */
     @Column(name = "total_amount", precision = 15, scale = 2)
     private BigDecimal totalAmount;
 
     @ColumnDefault("'UNPAID'")
-    @Lob
-    @Column(name = "status")
+    @Column(name = "status", length = 20)
     private String status;
 
     @ColumnDefault("current_timestamp()")
-    @Column(name = "created_at")
+    @Column(name = "created_at", updatable = false)
     private Instant createdAt;
 
-    public Long getId() {
-        return id;
-    }
+    // ── Getters & Setters ────────────────────────────────────────────────────
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public Contract getContract() {
-        return contract;
-    }
+    public Contract getContract() { return contract; }
+    public void setContract(Contract contract) { this.contract = contract; }
 
-    public void setContract(Contract contract) {
-        this.contract = contract;
-    }
+    public String getInvoiceCode() { return invoiceCode; }
+    public void setInvoiceCode(String invoiceCode) { this.invoiceCode = invoiceCode; }
 
-    public String getInvoiceCode() {
-        return invoiceCode;
-    }
+    public Integer getBillingMonth() { return billingMonth; }
+    public void setBillingMonth(Integer billingMonth) { this.billingMonth = billingMonth; }
 
-    public void setInvoiceCode(String invoiceCode) {
-        this.invoiceCode = invoiceCode;
-    }
+    public Integer getBillingYear() { return billingYear; }
+    public void setBillingYear(Integer billingYear) { this.billingYear = billingYear; }
 
-    public Integer getBillingMonth() {
-        return billingMonth;
-    }
+    public Integer getElecOld() { return elecOld; }
+    public void setElecOld(Integer elecOld) { this.elecOld = elecOld; }
 
-    public void setBillingMonth(Integer billingMonth) {
-        this.billingMonth = billingMonth;
-    }
+    public Integer getElecNew() { return elecNew; }
+    public void setElecNew(Integer elecNew) { this.elecNew = elecNew; }
 
-    public Integer getBillingYear() {
-        return billingYear;
-    }
+    public Integer getWaterOld() { return waterOld; }
+    public void setWaterOld(Integer waterOld) { this.waterOld = waterOld; }
 
-    public void setBillingYear(Integer billingYear) {
-        this.billingYear = billingYear;
-    }
+    public Integer getWaterNew() { return waterNew; }
+    public void setWaterNew(Integer waterNew) { this.waterNew = waterNew; }
 
-    public Integer getElecOld() {
-        return elecOld;
-    }
+    public BigDecimal getServiceFees() { return serviceFees; }
+    public void setServiceFees(BigDecimal serviceFees) { this.serviceFees = serviceFees; }
 
-    public void setElecOld(Integer elecOld) {
-        this.elecOld = elecOld;
-    }
+    /** FIX: getter này bị thiếu gây lỗi ReportService :92 */
+    public BigDecimal getTotalAmount() { return totalAmount; }
+    public void setTotalAmount(BigDecimal totalAmount) { this.totalAmount = totalAmount; }
 
-    public Integer getElecNew() {
-        return elecNew;
-    }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 
-    public void setElecNew(Integer elecNew) {
-        this.elecNew = elecNew;
-    }
-
-    public Integer getWaterOld() {
-        return waterOld;
-    }
-
-    public void setWaterOld(Integer waterOld) {
-        this.waterOld = waterOld;
-    }
-
-    public Integer getWaterNew() {
-        return waterNew;
-    }
-
-    public void setWaterNew(Integer waterNew) {
-        this.waterNew = waterNew;
-    }
-
-    public BigDecimal getServiceFees() {
-        return serviceFees;
-    }
-
-    public void setServiceFees(BigDecimal serviceFees) {
-        this.serviceFees = serviceFees;
-    }
-
-    public BigDecimal getTotalAmount() {
-        return totalAmount;
-    }
-
-    public void setTotalAmount(BigDecimal totalAmount) {
-        this.totalAmount = totalAmount;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
-
+    public Instant getCreatedAt() { return createdAt; }
+    public void setCreatedAt(Instant createdAt) { this.createdAt = createdAt; }
 }
