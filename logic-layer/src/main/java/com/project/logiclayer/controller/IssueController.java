@@ -46,7 +46,7 @@ public class IssueController {
                 tenantId, dto.getRoomId(), dto.getTitle(), dto.getPriority());
         try {
             IssueResponseDTO created = issueService.createIssue(dto, tenantId);
-            logger.info("[ISSUE] POST /api/business/issues - Issue created successfully with ID: {}", created.getId());
+            logger.info("[ISSUE] POST /api/business/issues - Issue created successfully with ID: {}", created.getIssueId());
             return ResponseEntity.ok(
                     ApiResponse.success("Gửi khiếu nại thành công", created));
         } catch (Exception e) {
