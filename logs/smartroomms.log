@@ -1,41 +1,54 @@
-2026-03-18T09:04:50.676+07:00  INFO 22904 --- [logic-layer] [main] c.p.logiclayer.LogicLayerApplication     : Starting LogicLayerApplication using Java 17.0.16 with PID 22904 (C:\Users\AD\Downloads\ProjectFull\Backend\logic-layer\target\classes started by XUN HI in C:\Users\AD\Downloads\ProjectFull\Backend)
-2026-03-18T09:04:50.684+07:00 DEBUG 22904 --- [logic-layer] [main] c.p.logiclayer.LogicLayerApplication     : Running with Spring Boot v4.0.3, Spring v7.0.5
-2026-03-18T09:04:50.686+07:00  INFO 22904 --- [logic-layer] [main] c.p.logiclayer.LogicLayerApplication     : No active profile set, falling back to 1 default profile: "default"
-2026-03-18T09:04:53.130+07:00  INFO 22904 --- [logic-layer] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-03-18T09:04:53.212+07:00  INFO 22904 --- [logic-layer] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 11 JPA repository interfaces.
-2026-03-18T09:04:54.167+07:00  INFO 22904 --- [logic-layer] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
-2026-03-18T09:04:54.267+07:00  INFO 22904 --- [logic-layer] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 3503 ms
-2026-03-18T09:04:55.935+07:00  INFO 22904 --- [logic-layer] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-03-18T09:04:56.213+07:00  WARN 22904 --- [logic-layer] [main] org.hibernate.orm.deprecation            : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-03-18T09:04:58.172+07:00  INFO 22904 --- [logic-layer] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-18T09:04:58.247+07:00  INFO 22904 --- [logic-layer] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-03-18T09:04:58.525+07:00 DEBUG 22904 --- [logic-layer] [main] c.p.logiclayer.security.JwtAuthFilter    : Filter 'jwtAuthFilter' configured for use
-2026-03-18T09:04:59.478+07:00  WARN 22904 --- [logic-layer] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-03-18T09:04:59.560+07:00  INFO 22904 --- [logic-layer] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2026-03-18T09:04:59.560+07:00  WARN 22904 --- [logic-layer] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2026-03-18T09:05:00.190+07:00  INFO 22904 --- [logic-layer] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
-2026-03-18T09:05:00.212+07:00  INFO 22904 --- [logic-layer] [main] c.p.logiclayer.LogicLayerApplication     : Started LogicLayerApplication in 10.143 seconds (process running for 16.051)
-2026-03-18T09:05:23.844+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-18T09:05:23.847+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2026-03-18T09:05:23.899+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-1] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
-2026-03-18T09:05:24.228+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-1] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
-2026-03-18T09:05:27.709+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-3] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
-2026-03-18T09:05:27.793+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-3] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
-2026-03-18T09:05:28.703+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-5] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
-2026-03-18T09:05:28.778+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-5] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
-2026-03-18T09:05:38.741+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-7] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
-2026-03-18T09:05:38.800+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-7] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
-2026-03-18T09:09:13.246+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-9] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
-2026-03-18T09:09:13.307+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-9] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
-2026-03-18T09:09:31.107+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-1] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
-2026-03-18T09:09:31.179+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-1] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
-2026-03-18T09:09:36.010+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-3] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
-2026-03-18T09:09:36.058+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-3] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
-2026-03-18T09:09:56.507+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-5] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/2 - Fetching room detail
-2026-03-18T09:09:56.515+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-5] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/2 - Room detail retrieved
-2026-03-18T09:10:05.491+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-7] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
-2026-03-18T09:10:05.528+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-7] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
-2026-03-18T09:10:06.721+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-9] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/1 - Fetching room detail
-2026-03-18T09:10:06.723+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-9] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/1 - Room detail retrieved
-2026-03-18T09:10:18.808+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-1] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
-2026-03-18T09:10:18.848+07:00  INFO 22904 --- [logic-layer] [http-nio-8081-exec-1] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
+2026-03-20T14:08:51.424+07:00  INFO 16320 --- [logic-layer] [main] c.p.logiclayer.LogicLayerApplication     : Starting LogicLayerApplication using Java 17.0.16 with PID 16320 (C:\Users\AD\Downloads\ProjectFull\Backend\logic-layer\target\classes started by XUN HI in C:\Users\AD\Downloads\ProjectFull\Backend)
+2026-03-20T14:08:51.432+07:00 DEBUG 16320 --- [logic-layer] [main] c.p.logiclayer.LogicLayerApplication     : Running with Spring Boot v4.0.3, Spring v7.0.5
+2026-03-20T14:08:51.433+07:00  INFO 16320 --- [logic-layer] [main] c.p.logiclayer.LogicLayerApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-03-20T14:08:53.106+07:00  INFO 16320 --- [logic-layer] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-20T14:08:53.179+07:00  INFO 16320 --- [logic-layer] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 11 JPA repository interfaces.
+2026-03-20T14:08:54.027+07:00  INFO 16320 --- [logic-layer] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-03-20T14:08:54.100+07:00  INFO 16320 --- [logic-layer] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2600 ms
+2026-03-20T14:08:54.953+07:00  INFO 16320 --- [logic-layer] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-20T14:08:55.179+07:00  WARN 16320 --- [logic-layer] [main] org.hibernate.orm.deprecation            : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-20T14:08:57.124+07:00  INFO 16320 --- [logic-layer] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-20T14:08:57.217+07:00  INFO 16320 --- [logic-layer] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-20T14:08:57.788+07:00 DEBUG 16320 --- [logic-layer] [main] c.p.logiclayer.security.JwtAuthFilter    : Filter 'jwtAuthFilter' configured for use
+2026-03-20T14:08:59.462+07:00  WARN 16320 --- [logic-layer] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-20T14:08:59.647+07:00  INFO 16320 --- [logic-layer] [main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-03-20T14:08:59.648+07:00  WARN 16320 --- [logic-layer] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-03-20T14:09:02.118+07:00  INFO 16320 --- [logic-layer] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-03-20T14:09:02.136+07:00  INFO 16320 --- [logic-layer] [main] c.p.logiclayer.LogicLayerApplication     : Started LogicLayerApplication in 11.247 seconds (process running for 17.237)
+2026-03-20T14:09:20.219+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-20T14:09:20.221+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-03-20T14:09:20.282+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-1] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
+2026-03-20T14:09:20.625+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-1] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
+2026-03-20T14:09:22.384+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-3] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
+2026-03-20T14:09:22.452+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-3] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
+2026-03-20T14:09:23.505+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-5] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/1 - Fetching room detail
+2026-03-20T14:09:23.512+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-5] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/1 - Room detail retrieved
+2026-03-20T14:09:41.863+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-7] c.p.l.controller.RoomController          : [ROOM] PUT /api/business/rooms/1 - Updating room
+2026-03-20T14:09:41.923+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-7] c.p.l.controller.RoomController          : [ROOM] PUT /api/business/rooms/1 - Room updated successfully
+2026-03-20T14:09:41.938+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-9] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/1 - Fetching room detail
+2026-03-20T14:09:41.941+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-9] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/1 - Room detail retrieved
+2026-03-20T14:09:43.793+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-1] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
+2026-03-20T14:09:43.866+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-1] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
+2026-03-20T14:09:46.223+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-3] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/2 - Fetching room detail
+2026-03-20T14:09:46.226+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-3] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/2 - Room detail retrieved
+2026-03-20T14:09:51.770+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-5] c.p.l.controller.RoomController          : [ROOM] PUT /api/business/rooms/2 - Updating room
+2026-03-20T14:09:51.776+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-5] c.p.l.controller.RoomController          : [ROOM] PUT /api/business/rooms/2 - Room updated successfully
+2026-03-20T14:09:51.801+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-7] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/2 - Fetching room detail
+2026-03-20T14:09:51.804+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-7] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/2 - Room detail retrieved
+2026-03-20T14:09:52.714+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-9] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
+2026-03-20T14:09:52.777+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-9] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
+2026-03-20T14:11:01.062+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-1] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
+2026-03-20T14:11:01.184+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-1] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
+2026-03-20T14:11:05.741+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-3] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
+2026-03-20T14:11:05.782+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-3] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
+2026-03-20T14:11:07.716+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-7] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
+2026-03-20T14:11:07.750+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-7] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
+2026-03-20T14:11:11.888+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-9] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/5 - Fetching room detail
+2026-03-20T14:11:11.891+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-9] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/5 - Room detail retrieved
+2026-03-20T14:11:13.318+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-1] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Fetching rooms overview
+2026-03-20T14:11:13.354+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-1] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/overview - Retrieved 100 rooms
+2026-03-20T14:11:29.761+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-3] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/5 - Fetching room detail
+2026-03-20T14:11:29.765+07:00  INFO 16320 --- [logic-layer] [http-nio-8081-exec-3] c.p.l.controller.RoomController          : [ROOM] GET /api/business/rooms/5 - Room detail retrieved
+2026-03-20T14:21:30.788+07:00  INFO 16320 --- [logic-layer] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-20T14:21:31.391+07:00  INFO 16320 --- [logic-layer] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-20T14:21:31.411+07:00  INFO 16320 --- [logic-layer] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'

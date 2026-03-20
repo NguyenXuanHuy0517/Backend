@@ -4,6 +4,7 @@ import com.project.datalayer.entity.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * RoomRepository: Truy vấn dữ liệu phòng trọ.
@@ -16,13 +17,6 @@ import java.util.List;
  * và cập nhật MotelAreaService để dùng method mới này.
  */
 public interface RoomRepository extends JpaRepository<Room, Long> {
-
-    /**
-     * Lấy thông tin phòng theo mã phòng.
-     * Spring Data JPA tự sinh: SELECT * FROM rooms WHERE room_code = ?
-     */
-    Room findByRoomCode(String roomCode);
-
     /**
      * Lấy danh sách phòng theo trạng thái (AVAILABLE, RENTED, MAINTENANCE...).
      * Dùng trong dashboard thống kê tỷ lệ lấp đầy.
@@ -35,5 +29,9 @@ public interface RoomRepository extends JpaRepository<Room, Long> {
      */
     long countByAreaIdAndStatus(Long areaId, String status);
 
+    // Tìm danh sách phòng theo khu trọ (area_id)
     List<Room> findByAreaId(Long areaId);
+
+    // Tìm phòng theo mã phòng (dùng cho search)
+    Optional<Room> findByRoomCode(String roomCode);
 }

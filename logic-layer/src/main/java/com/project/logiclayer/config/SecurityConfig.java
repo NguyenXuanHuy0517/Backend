@@ -62,6 +62,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/business/rooms/**").permitAll()
                         .requestMatchers("/api/business/areas/**").permitAll()
                         .requestMatchers("/api/business/invoices/**").permitAll()
+                        .requestMatchers("/api/business/tenants/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider(userDetailsService, passwordEncoder))

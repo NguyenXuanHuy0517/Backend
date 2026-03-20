@@ -45,4 +45,10 @@ public interface ContractRepository extends JpaRepository<Contract, Long> {
      */
     @Query("SELECT COUNT(c) FROM Contract c WHERE c.room.area.id = :areaId AND c.status = 'ACTIVE'")
     long countActiveContractsByAreaId(@Param("areaId") Long areaId);
+
+    // Lấy tất cả hợp đồng trong danh sách roomId
+    List<Contract> findByRoomIdIn(List<Long> roomIds);
+
+    // Lấy tất cả hợp đồng của một tenant
+    List<Contract> findByTenantId(Long tenantId);
 }
